@@ -57,7 +57,7 @@ public:
                 }
             }
         }
-        return 
+        return s.substr(resultl, resultr);
     }
 };
 
