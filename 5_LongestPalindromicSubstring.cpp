@@ -1,3 +1,4 @@
+// 动态规划法
 /**
 *Given a string s, return the longest 
 *palindromic
@@ -34,30 +35,18 @@ public:
         bool f[n][n];
         fill_n(&f[0][0], n*n, false);
         size_t max_len = 1, start = 0;
-        int resultl=0, resultr=0;
-        for (int i=0; i<n; i++){
-            for (int j=i; j<n; j++){
-                if (i==j){
-                    f[i][j]=true;
-                }
-                else if (j == i+1){
-                    f[i][j]=(s[i]==s[j]);
-                }
-                else {
-                    f[i][j]=(s[i]==s[j])&&f[i+1][j-1];
+
+        for (size_t i = 0; i < s.size(); i++){
+            f[i][i] = true;
+            for (size_t j = 0; j < i; j++){
+                f[j][i] = (s[j] == s[i] && (i - j < 2 || f[j + 1][i - 1]));
+                if (f[j][i] && max_len < (i - j + 1)){
+                    max_len = i - j + 1;
+                    start = j;
                 }
             }
         }
-        for (int i=0; i<n; i++){
-            for (int j=i; j<n; j++){
-                if (f[i][j] && max_len<j-i){
-                    max_len=j-i;
-                    resultl=i;
-                    resultr=j;
-                }
-            }
-        }
-        return s.substr(resultl, resultr);
+        return s.substr(start, max_len);
     }
 };
 
@@ -65,7 +54,7 @@ public:
 int main(){
     Solution solv;
     string result;
-    string s;
+    string s="ababc";
 
     result = solv.solv(s);
     cout<<"result:"<<result<<endl;
