@@ -1,1 +1,7 @@
 # My leetcode Code
+
+Some code are based on the work done by others, this is just my repository of recording my progress of DataStructure&Algorithms, and prepare for the 2024 summer camp test.
+
+>You can run any code in VScode but you should be careful of `.vscode/tasks.json` and `./vscode/launch.json` which specify the path of gcc in my computer and there is of a chance that the path is not compatible with your environment. So please check the TWO files before you use them in VScode in your environment.
+
+## To be continued...
