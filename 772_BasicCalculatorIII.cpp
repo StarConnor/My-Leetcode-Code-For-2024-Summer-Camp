@@ -29,7 +29,6 @@ public:
         vector<int> stcalc;
         int length = s.size();
         int num = 0;
-        long result = 0;
         // this "for" cycle and the next "for" cycle together give the suffix expression
         for (int i = 0; i < length; i ++){
             if (s[i] >= '0' && s[i] <= '9'){
@@ -79,12 +78,12 @@ public:
             }
         }
         //this "for" cycle clean the remain operator in the stopr stack
-        for (int i = 0; i < stopr.size(); i ++){
+        for (size_t i = 0; i < stopr.size(); i ++){
             stpost.push_back(stopr.back());
             stopr.pop_back();
         }
         //this "for" cycle calculate the result based on the suffix expression
-        for (int i = 0; i < stpost.size(); i ++){
+        for (size_t i = 0; i < stpost.size(); i ++){
             if (stpost[i] == '#'){
                 num = 0;
                 i ++; 
