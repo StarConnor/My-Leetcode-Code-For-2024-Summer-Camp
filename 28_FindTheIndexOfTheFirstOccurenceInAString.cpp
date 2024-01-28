@@ -76,7 +76,6 @@ public:
 int main(){
     Solution solv;
     string haystack = "hatAndhat", needle = "hat";
-    // return value should be modified according to the implementation of Solution.solv()
     int result;
     string test = "ababc";
     int next[test.size()];

@@ -27,6 +27,7 @@ int main(){
 
     result = solv.solv(arg1, arg2);
     
+    cout << "Input:" << arg1 << "\t" << arg2 << endl;
     cout << "result:" << result << endl;
     return 0;
 }
