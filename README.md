@@ -10,6 +10,6 @@ Some code are based on the work done by others, and all code is based on C++. Th
 
 ## Reference
 
-I have created my code based on the two pdfs in the repository, they are "LeetCode 101 - A LeetCode Grinding Guide(C++ Version).pdf"(Author: Chang Gao, [original repository](https://github.com/changgyhub/leetcode_101/)) and "leetcode-cpp.pdf"(Autor: soulmachine@gmail.com, [original repository](https://github.com/changgyhub/leetcode_101/)). Thank very much of the authors of these two books as I have gain inspiration from them.
+I have created my code based on the two pdfs in the directory "Reference", they are "LeetCode 101 - A LeetCode Grinding Guide(C++ Version).pdf"(Author: Chang Gao, [original repository](https://github.com/changgyhub/leetcode_101/)) and "leetcode-cpp.pdf"(Autor: soulmachine@gmail.com, [original repository](https://github.com/changgyhub/leetcode_101/)). Thank very much of the authors of these two books as I have gain inspiration from them.
 
 ## To be continued...
