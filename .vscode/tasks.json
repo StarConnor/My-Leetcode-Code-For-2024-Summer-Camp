@@ -12,7 +12,6 @@
                 "-Wall",
                 "${file}",
                 "-o",
-                //"${fileDirname}/${fileBasenameNoExtension}"
                 "${fileDirname}/main"
             ],
             "options": {
