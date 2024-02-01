@@ -37,8 +37,20 @@ using namespace std;
 */
 class Solution {
 public:
-    int solv(int arg1, int arg2){
-
+    int solv(vector<int> &height){
+        int start = 0;
+        int end = height.size() - 1;
+        int result = 0x80000000;
+        while (start < end) {
+            int area = min(height[end], height[start]) * (end - start);
+            result = max(result, area);
+            if (height[start] <= height[end]){
+                start ++;
+            } else {
+                end --;
+            }
+        }
+        return result;
     }
 };
 
@@ -47,13 +59,15 @@ public:
 */
 int main(){
     Solution solv;
-    int arg1, arg2;
+    vector<int> height = {1,8,6,2,5,4,8,3,7};
     // return value should be modified according to the implementation of Solution.solv()
     int result;
 
-    result = solv.solv(arg1, arg2);
+    result = solv.solv(height);
     
-    cout << "Input:" << arg1 << "\t" << arg2 << endl;
+    cout << "Input:";
+    for (int i = 0; i < height.size(); i ++)
+        cout << height[i] << ", ";
     cout << "result:" << result << endl;
     return 0;
 }
