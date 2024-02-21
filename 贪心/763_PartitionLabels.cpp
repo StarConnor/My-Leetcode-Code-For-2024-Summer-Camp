@@ -39,6 +39,27 @@ class Solution {
 public:
     vector<int> solv(string s){
         vector<int> ans;
+        int lastIndex[26] = {};
+        int maxIndex = 0, anchor = 0;
+        int size = s.size();
+        for (int i = 0; i < size; ++i){
+            lastIndex[s[i] - 'a'] = i;
+        }
+
+        for (int i = 0; i < size; ++i){
+            maxIndex = max(lastIndex[s[i] - 'a'], maxIndex);
+            if (maxIndex == i){
+                ans.push_back(i - anchor + 1);
+                anchor = i + 1;
+            }
+        }
+        return ans;
+    }
+};
+class Solution0 {
+public:
+    vector<int> solv(string s){
+        vector<int> ans;
         unordered_map<char, int> um;
         auto last = s.begin();
         auto start = s.begin();
