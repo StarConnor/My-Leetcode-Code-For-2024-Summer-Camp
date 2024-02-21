@@ -11,7 +11,7 @@ using namespace std;
 */
 class Solution {
 public:
-    int solv(int arg1, int arg2){
+    int solv(int arg1){
 
     }
 };
@@ -21,13 +21,13 @@ public:
 */
 int main(){
     Solution solv;
-    int arg1, arg2;
+    int arg1;
     // return value should be modified according to the implementation of Solution.solv()
     int result;
 
-    result = solv.solv(arg1, arg2);
+    result = solv.solv(arg1);
     
-    cout << "Input:" << arg1 << "\t" << arg2 << endl;
+    cout << "Input:" << arg1 << endl;
     cout << "Result:" << result << endl;
     return 0;
 }
