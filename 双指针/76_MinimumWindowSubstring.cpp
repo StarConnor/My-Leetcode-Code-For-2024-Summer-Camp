@@ -46,7 +46,65 @@ using namespace std;
 class Solution {
 public:
     string solv(string s, string t){
+        int need[128] = {0};
+        int window[128] = {0};
+        int strLength = s.size(), targetLength = t.size();
 
+        for (char& c : t){
+            ++need[c];
+        }
+
+        int matches = 0;
+        int start = 0;
+        int minStart = -1;
+        int minLength = 0x7fffffff;
+        for (int i = 0; i < strLength; ++i){
+            ++window[s[i]];
+            if (need[s[i]] >= window[s[i]]){
+                ++matches;
+            }
+            while (matches == targetLength){
+                if (i - start + 1 < minLength){
+                    minLength = i - start + 1;
+                    minStart = start;
+                }
+                if (need[s[start]] >= window[s[start]]){
+                    --matches;
+                }
+                --window[s[start++]];
+            }
+        }
+        return minStart < 0 ? "" : s.substr(minStart, minLength);
+    }
+};
+class Solution0 {
+public:
+    string solv(string s, string t){
+        vector<int> chars(128, 0);
+        vector<int> flag(128, false);
+        for (int i = 0; i < t.size(); ++i){
+            flag[t[i]] = true;
+            ++chars[t[i]];
+        }
+        int cnt = 0, l = 0, min_l = 0, min_size = s.size() + 1;
+        for (int r = 0; r < s.size(); ++r){
+            if (flag[s[r]]){
+                if (--chars[s[r]] >= 0){
+                    ++cnt;
+                }
+                while (cnt == t.size()){
+                    if (r - l + 1 < min_size){
+                        min_l = l;
+                        min_size = r - l + 1;
+                    }
+                    if (flag[s[l]] && ++chars[s[l]] > 0){
+                        --cnt;
+                    }
+                    ++l;
+                }
+            }
+        }
+        return min_size > s.size() ? "" : s.substr(min_l, min_size);
     }
 };
 
